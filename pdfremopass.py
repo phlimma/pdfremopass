@@ -12,6 +12,7 @@ try:
     import PyPDF2
 except ImportError:
     print("Biblioteca PyPDF2 não encontrada. Instalando...")
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "PyCryptodome"]) #Necessário para decriptação do PDF pelo PyPDF2
     subprocess.check_call([sys.executable, "-m", "pip", "install", "PyPDF2"])
     import PyPDF2
 
@@ -67,3 +68,4 @@ if __name__ == "__main__":
             remover_senha(pdf, senha)
 
     input("\nRotina finalizada. Pressione ENTER para encerrar...")
+
